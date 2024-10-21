@@ -23,11 +23,8 @@ body {
     font-size: 26px;
     margin: 0;
     color: #AC7FE8;
-    /* text-align: center; */
     background-color: #FFFF;
-
-
-}
+} 
 
 h2 {
     font-size: 31px;
@@ -144,6 +141,10 @@ h3 {
     display: flex;
     font-size: 20px;
     margin: 0;
+}
+
+.mainLoginPage {
+  text-align: center;
 }
 
 .popularBookContainer {
