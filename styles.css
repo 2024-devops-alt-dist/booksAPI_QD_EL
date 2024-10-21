@@ -23,7 +23,7 @@ body {
     font-size: 26px;
     margin: 0;
     color: #AC7FE8;
-    text-align: center;
+    /* text-align: center; */
     background-color: #FFFF;
 
 
@@ -149,19 +149,21 @@ h3 {
 .popularBookContainer {
     margin-left: 8px;
     margin-top: 45px;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: start;
     gap: 25px;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .popularBookCarousel {
-    margin-left: -8px;
     padding-inline-start: 0;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 35vw);
+    grid-template-columns: repeat(4, 36vw);
+    grid-column-gap: 10px;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
 }
 
 .bookCard {
@@ -192,9 +194,6 @@ h3 {
     color: #ffffff;
     margin-bottom: 5px;
 }
-
-
-
 
 .description {
   color: #b19cd9;
@@ -255,4 +254,83 @@ h3 {
 .signup {
   color: #b19cd9;
 }
+
+.storyBookTitle {
+    display: flex;
+    margin-top: 80px;
+    justify-self: center;
+    font-size: 31px;
+    h3 {
+        margin-left: 5px;
+    }
+}
+
+
+.excellentStoryBookContainer {
+    margin-left: 8px;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: start;
+    h2 {
+        font-size: 24px;
+        margin-bottom: 5px;
+        list-style-type: none;
+        padding-left: 20px;
+        border-left: 2.7px solid #AC7FE8;
+    }
+}
+
+.excellentStoryBookCarousel {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 36vw);
+    grid-column-gap: 10px;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.musicPlayerStoryBookContainer {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 45px;
+    flex-direction: column;
+    align-items: start;
+    /* gap: 25px; */
+    h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+        list-style-type: none;
+        padding-left: 20px;
+        border-left: 2.7px solid #AC7FE8;
+    }
+}
+
+.musicPlayerStoryBookCard {
+    height: 365px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    margin-bottom: 5px;
+    p {
+        font-size: 16px;
+        /* margin: 5px; */
+        margin-bottom: 30px;
+    }
+    span {
+        font-size: 20px;
+    }
+}
+.musicPlayerStoryBookText {
+    color: #AC7FE8;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 
