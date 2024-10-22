@@ -72,29 +72,29 @@ h3 {
     padding: 10px 0; /* Padding for the navbar */
     text-align: center; /* Center text in the navbar */
     z-index: 1000; /* Ensure the navbar is above other content */
-
-}
-.navBar ul {
-    list-style-type: none; /* Remove bullet points from the list */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.navBar li {
-    display: inline; /* Display list items inline */
-    margin: 0 15px; /* Spacing between items */
-}
-
-.navBar a {
-    color: white; /* Link color */
-    text-decoration: none; /* Remove underline from links */
-}
-
-.navBar a:hover {
-    text-decoration: underline; /* Underline on hover */
+    ul {
+        list-style-type: none; /* Remove bullet points from the list */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    li {
+        display: inline; /* Display list items inline */
+        margin: 0 15px; /* Spacing between items */
+        img {
+            width: 40px;
+            height: auto;
+        }
+    }
+    a {
+        color: white; /* Link color */
+        text-decoration: none; /* Remove underline from links */
+    }
+    a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
 }
 
 .content {
@@ -144,37 +144,41 @@ h3 {
 }
 
 .mainLoginPage {
-  text-align: center;
+    text-align: center;
 }
 
 .popularBookContainer {
     margin-left: 8px;
     margin-top: 45px;
-    /* display: flex; */
     flex-direction: column;
     align-items: start;
     gap: 25px;
-    /* overflow: scroll; */
 }
 
 .popularBookCarousel {
     padding-inline-start: 0;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(4, 36vw);
+    grid-template-columns: repeat(5, 36vw);
     grid-column-gap: 10px;
     overflow: scroll;
     scroll-snap-type: x mandatory;
 }
 
 .bookCard {
-    margin-left: 8px;
+    /* margin-left: 8px; */
     width: 135px;
     height: 214px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    img {
+        border-radius: 5px;
+        width: 135px;
+        height: 170px;
+        object-fit: cover;
+    }
 }
 
 
@@ -186,14 +190,14 @@ h3 {
 }
 
 .categoryCard {
-    width: 404px;
+    width: calc(100% - 8px);
+    margin: 10px 0 0;
     height: 158px;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     color: #ffffff;
-    margin-bottom: 5px;
 }
 
 .description {
@@ -442,274 +446,389 @@ progress::-moz-progress-bar {
     border-bottom-right-radius: 16px;
 }
 
-.bodyBookPage {
-  background-color: rgb(29, 27, 38);
-  position: relative;
+.blockPurple {
+    display: none;
 }
 
-  .backgroundBookPage {
-    display: flex;
-    flex-direction: column;
+.bodyBookPage {
+    background-color: rgb(29, 27, 38);
     position: relative;
-    z-index: 2;
-    height: 100vh;
   }
-
-  .backgroundBookPage:before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1;
-    background-image: url('assets/img/BookCover.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.25;
+  
+    .backgroundBookPage {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+    }
+  
+    .backgroundBookPage:before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+      background-image: url('assets/img/BookCover.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+    }
+  
+    .LinldAndBookCover {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      margin-top: 109px;
+    }
+  
+    .bookPagePresentation {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .bookPageSummury {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+    }
+  
+    .bookPageTitles {
+      margin-left: 14px;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .bookPageTitle {
+      font-weight: bold;
+      font-size: 36px;
+      margin: 14px 0 0 0;
+    }
+  
+    .bookPageAuthor {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0;
+    }
+  
+    .bookPageTime {
+      font-style: italic;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 9px 0 0 0;
+    }
+  
+    .bookPageIcons {
+      display: flex;
+      flex-direction: row;
+      margin-right: 15px;
+    }
+  
+    .bookmarkIcon {
+      width: 25px;
+    }
+  
+    .menuIcon {
+      width: 25px;
+      margin-left: 16px;
+  
+    }
+  
+    .bookPageText {
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 35px 15px 0 15px;
+    }
+  
+    .bookPageButtons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 25px;
+    }
+  
+    .borrowButton {
+      background-color: #AC7FE8;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding: 17px 50px;
+      font-size: 26px;
+      font-family: "Overlock", Arial, Helvetica, sans-serif;
+    }
+  
+    .iconButton {
+      background-color: #AC7FE8;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding: 13px
+    }
+  
+  .iconsBookPage {
+    width: 33px;
   }
-
-  .LinldAndBookCover {
-    position: relative;
-    z-index: 2;
+  
+  .bodyAudioBookPage {
     display: flex;
-    margin-top: 109px;
+    justify-content: center;
+    align-items: center;
   }
-
-  .bookPagePresentation {
-    position: relative;
-    z-index: 2;
+  
+  .crossIcon {
+    width: 23px;
+    margin: 53px 0 0 390px;
+  }
+  
+  .audioBookInformations {
     display: flex;
-    flex-direction: column;
     justify-content: center;
   }
-
-  .bookPageSummury {
+  
+  .audioBookCover {
+    display: flex;
+    width: 155px;
+    height: 186px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin: 34px 0 0 10px;
+  }
+  
+  .linldAndBookRank {
+    display: flex;
+    flex-direction: column;
+    margin: 94px 0 0 22px;
+  }
+  
+  .linldAndBookTitle {
+    display: flex;
+    font-size: 32px;
+    margin: 0;
+  }
+  
+  .starsRank {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+  
+  .yellowStar {
+    width: 20px;
+  }
+  
+  .linldAndBookSubtitles {
+    font-size: 16px;
+    font-weight: lighter;
+  }
+  
+  .totalAtmosphere {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 30px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  .atmosphere {
+    font-size: 16px;
+  }
+  
+  .iconAtmosphere {
+    width: 37px;
+  }
+  
+  .linldAndBookChapter {
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    margin-top: 53px;
+    margin-left: 50px;
+  }
+  
+  .chapterNumber {
+    font-size: 18px;
+    margin-bottom: 7px;
+    margin-top: 0;
+  }
+  
+  .chapterName {
+    font-size: 32px;
+    margin-bottom: 7px;
+    margin-top: 0;
+  }
+  
+  .chapterResume {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 50px;
+  }
+  
+  .audioBookPageButtonContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+  }
+  
+  .audioBookPageButton {
+    position: absolute;
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    border-radius: 100px;
+    font-family: Overlock, sans-serif;
+    display: flex;
+  }
+  
+  .audioBookPageButtonOne {
+    background-color: #b19cd9;
+    width: 370px;
+    font-weight: bold;
+    color: #fff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: end;
   }
-
-  .bookPageTitles {
-    margin-left: 14px;
+  
+  .audioBookPageButtonTwo {
+    border:2px solid #ffffff;
+    background-color: #D2B9F3;
     display: flex;
-    flex-direction: column;
+  
+  }
+  
+  .arrowIcon {
+    width: 29px;
+  }
+  
+  .playIcon {
+    width: 40px;
+    height: auto;
   }
 
-  .bookPageTitle {
-    font-weight: bold;
-    font-size: 36px;
-    margin: 14px 0 0 0;
-  }
+/* Styles for larger screens */
+@media (min-width: 768px) {
 
-  .bookPageAuthor {
-    font-weight: bold;
-    font-size: 20px;
-    margin: 0;
-  }
+    body {
+        background-color: #FFF3FD;
+    }
 
-  .bookPageTime {
-    font-style: italic;
-    font-weight: bold;
-    font-size: 16px;
-    margin: 9px 0 0 0;
-  }
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .bookPageIcons {
-    display: flex;
-    flex-direction: row;
-    margin-right: 15px;
-  }
+    .blockPurple {
+        width: 100%;
+        height: 257px;
+        background-color: #AC7FE8;
+        color: #FFFFFF;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        padding: 90px 200px;
+        text-align: center;
+        /* margin-top: -90px; */
+        h1 {
+            font-size: 48px;
+            margin-top: 110px;
+            margin-block-end: 0;
+        }
+        p {
+            font-size: 31px;
+            margin-top: 0;
+        }
+    }
+    
+    .navBar {
+        top:0;
+        bottom: calc(100% - 90px);
+        background-color: #AC7FE8;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    
+        display: flex;
+        align-items: center;
+        ul {
+            align-items: center;
+            li {
+                img {
+                    width: 65px;
+                    height: auto;
+                }
+            }
+        }
+        
+        ul li:nth-child(2) {
+            margin-left: 65vw;
+        }
+        .customStroke {
+            stroke: #ffffff;
+        }
+    }
 
-  .bookmarkIcon {
-    width: 25px;
-  }
+    /* .searchIcon {
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    } */
 
-  .menuIcon {
-    width: 25px;
-    margin-left: 16px;
+    .popularBookContainer {
+        h2 {
+            display: none;
+        }
+        margin-left: 0;
+    }
 
-  }
+    .popularBookCarousel {
+        display: flex;
+        justify-content: space-between;
+        margin: -730px 100px 0 ;
+    }
 
-  .bookPageText {
-    text-align: center;
-    font-weight: bold;
-    font-size: 18px;
-    margin: 35px 15px 0 15px;
-  }
+    .bookCard {
+        margin-left: 8px;
+        width: 100%;
+        height: 100%;
+        img {
+            width: 225px;
+            height: 284px;
+        }
+    }
 
-  .bookPageButtons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 25px;
-  }
+    .activityContainer {
+        margin: 320px 100px 0;
+        
+    }
 
-  .borrowButton {
-    background-color: #AC7FE8;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    padding: 17px 50px;
-    font-size: 26px;
-    font-family: "Overlock", Arial, Helvetica, sans-serif;
-  }
+    .activityCarousel {
+        display: flex;
+        justify-content: center;
+    }
 
-  .iconButton {
-    background-color: #AC7FE8;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    padding: 13px
-  }
+    .categoryWrapper {
+        margin:-30px 150px;
+        flex-direction: row;
 
-.iconsBookPage {
-  width: 33px;
+    }
+    
 }
 
-.bodyAudioBookPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.crossIcon {
-  width: 23px;
-  margin: 53px 0 0 390px;
-}
-
-.audioBookInformations {
-  display: flex;
-  justify-content: center;
-}
-
-.audioBookCover {
-  display: flex;
-  width: 155px;
-  height: 186px;
-  border-radius: 5px;
-  object-fit: cover;
-  margin: 34px 0 0 10px;
-}
-
-.linldAndBookRank {
-  display: flex;
-  flex-direction: column;
-  margin: 94px 0 0 22px;
-}
-
-.linldAndBookTitle {
-  display: flex;
-  font-size: 32px;
-  margin: 0;
-}
-
-.starsRank {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-}
-
-.yellowStar {
-  width: 20px;
-}
-
-.linldAndBookSubtitles {
-  font-size: 16px;
-  font-weight: lighter;
-}
-
-.totalAtmosphere {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 30px;
-  text-align: center;
-  margin: auto;
-  margin-top: 50px;
-}
-
-.atmosphere {
-  font-size: 16px;
-}
-
-.iconAtmosphere {
-  width: 37px;
-}
-
-.linldAndBookChapter {
-  font-weight: lighter;
-  display: flex;
-  flex-direction: column;
-  margin-top: 53px;
-  margin-left: 50px;
-}
-
-.chapterNumber {
-  font-size: 18px;
-  margin-bottom: 7px;
-  margin-top: 0;
-}
-
-.chapterName {
-  font-size: 32px;
-  margin-bottom: 7px;
-  margin-top: 0;
-}
-
-.chapterResume {
-  font-size: 18px;
-  margin: 0;
-  margin-right: 50px;
-}
-
-.audioBookPageButtonContainer {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 70px;
-}
-
-.audioBookPageButton {
-  position: absolute;
-  cursor: pointer;
-  padding: 15px;
-  border: none;
-  border-radius: 100px;
-  font-family: Overlock, sans-serif;
-  display: flex;
-}
-
-.audioBookPageButtonOne {
-  background-color: #b19cd9;
-  width: 370px;
-  font-weight: bold;
-  color: #fff;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.audioBookPageButtonTwo {
-  border:2px solid #ffffff;
-  background-color: #D2B9F3;
-  display: flex;
-
-}
-
-.arrowIcon {
-  width: 29px;
-}
-
-.playIcon {
-  width: 40px;
-  height: auto;
-}
