@@ -1,4 +1,15 @@
 import { apiKey } from './config.js';
+import { DetailBook } from './detailBook.js';
+
+
+const book = new DetailBook();
+book.getBooks();
+
+
+
+// const theme = 'science fiction'; // remplacer par ce que l'utilisateur a tapé
+// // const apiKey = ''; // Remplace par ta vraie clé API
+// // const url = `https://www.googleapis.com/books/v1/volumes?q=subject:${theme}&key=`;
 
 
 
