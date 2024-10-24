@@ -1,24 +1,11 @@
 import { apiKey } from './config.js';
 import { DetailBook } from './detailBook.js';
 
-const url = 'https://www.googleapis.com/books/v1/volumes?q=';
 
 const book = new DetailBook();
 book.getBooks();
 
-// async function fetchData() {
 
-//     try {
-//         const response = await fetch("");
-//         console.log(response);
-
-//         const data = await res.json();
-//         console.table(data);
-//         title.textContent = data.title;
-//     } catch (error) {
-//         console.log("Erreur lors de la récupération des données", error);
-//     }
-// }
 
 // const theme = 'science fiction'; // remplacer par ce que l'utilisateur a tapé
 // // const apiKey = ''; // Remplace par ta vraie clé API
