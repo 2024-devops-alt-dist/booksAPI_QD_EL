@@ -4,3 +4,7 @@
 *.scss.map
 
 .env.local
+.env
+
+assets/js/config.js
+*/config.js
