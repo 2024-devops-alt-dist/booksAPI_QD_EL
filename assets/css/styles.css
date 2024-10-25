@@ -514,10 +514,17 @@ progress::-moz-progress-bar {
     }
   
     .LinldAndBookCover {
-      position: relative;
+      /* position: relative;
       z-index: 2;
-      display: flex;
+      display: flex; */
+
+      height: 200px;
+      width: 100%;
       margin-top: 109px;
+      background-image: var(--bg-image);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
     }
   
     .bookPagePresentation {

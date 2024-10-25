@@ -1,35 +1,25 @@
 import { AbstractAPI } from './abstractAPI.js'
 
-document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    if (id) {
-        const book = new DetailBook();
-        book.displayBook(id);
-    } else {
-        console.error("ID du livre manquant dans l'URL.");
-    }
-});
 
 /**
  * Objet qui permet de retrouver la data souhaité pour la bookPage
- */
+*/
 export class DetailBook extends AbstractAPI {
 
     constructor() {
         super();
     }
 
-
+    
     /**
      * récupère le livre souhaité et retourne les infos voulues
      */
     async getBook(id) {
 
         try {
-            const response = await this.fetchDataById(id);
-            console.log(response);
-            return response.volumeInfo;
+            const data = await this.fetchDataById(id);
+            console.log(data);
+            return data.volumeInfo;
 
         } catch (error) {
             console.log("Erreur! le livre n'a pas pu être récupéré.");
@@ -45,25 +35,23 @@ export class DetailBook extends AbstractAPI {
         
         this.getBook(id)
             .then((data) => { 
-                if (!data) { throw new Error("Data n'a pas pu être récupéré."); }
-
-                // console.log(data);
+                if (!data) { throw new Error("Soucis lors de la récupération de la data. Fin du programme."); }
+                
                 const { title, publisher, publishedDate, imageLinks, authors } = data;
-                const image = imageLinks.smallThumbnail ?  imageLinks.smallThumbnail : "assets/img/BookCover.jpg";
+                const image = imageLinks ?  imageLinks.smallThumbnail : "assets/img/no-image.png";
 
                 const main = document.getElementById("bodyBookPage");
-
                 main.innerHTML = `
                     <section class="backgroundBookPage">
                     <!--Cette section est utilisée pour permettre d'avoir une image en background sur laquelle je peux modifier la transparence-->
-                        <img class="LinldAndBookCover" height="200px"; src="${image}" alt="Book cover of ${title}">
+                    <div class="LinldAndBookCover" style="--bg-image: url(${image});"></div>
                         <section class="bookPagePresentation">
                             <div class="bookPageSummury">
                                 <div class="bookPageTitles">
-                                    <h1 class="bookPageTitle">${title}</h1>
-                                    <h2 class="bookPageAuthor">${authors}</h2>
+                                <h1 class="bookPageTitle">${title}</h1>
+                                <h2 class="bookPageAuthor">${authors}</h2>
                                     <h3 class="bookPageTime">${publishedDate} . ${publisher}</h3>
-                                </div>
+                                    </div>
                                 <div class="bookPageIcons">
                                     <img class="bookmarkIcon" src="assets/img/bookmark.svg" alt="bookmark icon to favorite the book">
                                     <img class="menuIcon" src="assets/img/menu.svg" alt="menu icon to learn more">
@@ -76,11 +64,23 @@ export class DetailBook extends AbstractAPI {
                                     <button class="iconButton"><img class="iconsBookPage" src="assets/img/music2.svg" alt="Music notes to listen the book"></button>
                                 </a>
                                 <button class="iconButton"><img class="iconsBookPage" src="assets/icons/star.svg" alt="White star to put the book in favorite"></button>
-                            </section>
+                                </section>
                         </section>
-                    </section>`;
+                        </section>`;
 
-            }).catch(error => console.error('Erreur:', error));
+                    }).catch(error => console.error('Erreur:', error));
     }
 
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    if (id) {
+        const book = new DetailBook();
+        book.displayBook(id);
+    } else {
+        console.error("ID du livre manquant dans l'URL.");
+    }
+});
