@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
     </head>
 <body>
-    <img class="searchIcon" src="assets/icons/search-normal.svg" alt="search icon">
+    <a href="#bookContainer"><img class="searchIcon" src="assets/icons/search-normal.svg" alt="search icon"></a>
     <img class="searchIcon" src="assets/icons/arrow-left.svg" alt="search icon" style="left: 17px">
     <div class="storyBookTitle">
         <img src="assets/icons/book.svg" style="width: 55px;" alt="">
@@ -68,6 +68,11 @@
     </div>
 
     <div class="musicPlayerStoryBookContainer" id="bookContainer">
+        <div class="searchBar">
+            <label for="searchInput">Search for a book</label>
+            <input type="text" id="searchInput" placeholder="by title, author or ISBN">
+            <button class="borrowButton" id="searchButton">ok</button>
+        </div>
         <h2>
             Children StoryBook
         </h2>
