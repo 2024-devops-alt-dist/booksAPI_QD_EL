@@ -38,12 +38,11 @@ export class DetailBook extends AbstractAPI {
                 if (!data) { throw new Error("Soucis lors de la récupération de la data. Fin du programme."); }
                 
                 const { title, publisher, publishedDate, imageLinks, authors } = data;
-                const image = imageLinks ?  imageLinks.smallThumbnail : "assets/img/no-image.png";
+                const image = imageLinks ?  imageLinks.smallThumbnail : "../../assets/img/no-image.png";
 
                 const main = document.getElementById("bodyBookPage");
                 main.innerHTML = `
-                    <section class="backgroundBookPage">
-                    <!--Cette section est utilisée pour permettre d'avoir une image en background sur laquelle je peux modifier la transparence-->
+                    <section class="backgroundBookPage" style="--bg-image: url(${image});">
                     <div class="LinldAndBookCover" style="--bg-image: url(${image});"></div>
                         <section class="bookPagePresentation">
                             <div class="bookPageSummury">

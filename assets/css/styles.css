@@ -490,7 +490,7 @@ progress::-moz-progress-bar {
 }
 
 .bodyBookPage {
-    background-color: rgb(29, 27, 38);
+    background-color: rgb(55, 27, 215);
     position: relative;
   }
   
@@ -502,15 +502,24 @@ progress::-moz-progress-bar {
       height: 100vh;
     }
   
-    .backgroundBookPage:before {
+    .backgroundBookPage::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       z-index: 1;
-      background-image: url('assets/img/BookCover.jpg');
+      /* background-image: url('../../assets/img/BookCover.jpg'); */
+      background-image: var(--bg-image);
       background-size: cover;
       background-position: center;
-      opacity: 0.25;
+      /* opacity: 0.25; */
+    }
+
+    .backgroundBookPage::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 1;
+        background-color: #0000007b;
     }
   
     .LinldAndBookCover {
@@ -518,6 +527,7 @@ progress::-moz-progress-bar {
       z-index: 2;
       display: flex; */
 
+      z-index: 2;
       height: 200px;
       width: 100%;
       margin-top: 109px;
