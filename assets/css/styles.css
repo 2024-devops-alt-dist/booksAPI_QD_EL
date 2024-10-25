@@ -186,6 +186,9 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    a {
+        text-decoration: none;
+    }
 
 }
 
@@ -327,6 +330,7 @@ h3 {
     justify-content: space-between;
     color: #ffffff;
     margin-bottom: 5px;
+   
     p {
         font-size: 16px;
         /* margin: 5px; */
@@ -344,6 +348,9 @@ h3 {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 5px;
+    a{
+        text-decoration: none;
+    }
     h3 {
         font-size: 20px;
         font-weight: bolder;
@@ -752,6 +759,32 @@ progress::-moz-progress-bar {
   .playIcon {
     width: 40px;
     height: auto;
+  }
+
+  .searchBar {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+        label{
+            margin-bottom: 5px;
+        }
+        input{
+            margin-bottom: 5px;
+            width: 300px;
+            border-radius: 50px;
+            border-color: #AC7FE8;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-family: "Overlock", Arial, Helvetica, sans-serif;
+        }
+        button {
+            width: 300px;
+            padding: 0px 50px;
+        }
+    
   }
 
 /* Styles for larger screens */
