@@ -22,7 +22,7 @@ export class DetailBook extends AbstractAPI {
             return data.volumeInfo;
 
         } catch (error) {
-            console.log("Erreur! le livre n'a pas pu être récupéré.");
+            console.log("Erreur! le livre n'a pas pu être récupéré.", error);
         }
     }
 
@@ -37,8 +37,9 @@ export class DetailBook extends AbstractAPI {
             .then((data) => { 
                 if (!data) { throw new Error("Soucis lors de la récupération de la data. Fin du programme."); }
                 
-                const { title, publisher, publishedDate, imageLinks, authors } = data;
+                const { title, publisher, publishedDate, imageLinks, authors, description } = data;
                 const image = imageLinks ?  imageLinks.smallThumbnail : "../../assets/img/no-image.png";
+                const desc = description ? description : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam eligendi officiis aliquam at vero in!";
 
                 const main = document.getElementById("bodyBookPage");
                 main.innerHTML = `
@@ -56,7 +57,7 @@ export class DetailBook extends AbstractAPI {
                                     <img class="menuIcon" src="assets/img/menu.svg" alt="menu icon to learn more">
                                 </div>
                             </div>
-                            <p class="bookPageText">In a small, forgotten town, Evelyn stumbles upon an ancient library hidden beneath the ruins of an abandoned mansion. The library holds a collection of books no one has ever heard of, each one containing the untold stories of lost souls. As Evelyn starts reading, she discovers that the books are more than just stories—they are memories of people who have vanished from history, erased from existence. Each page she turns reveals a new life, a new mystery, and a new tragedy. But the deeper she reads, the more she realizes these lives are connected to her own in ways she never imagined.</p>
+                            <p class="bookPageText">${desc}</p>
                             <section class="bookPageButtons">
                                 <button class="borrowButton">BORROW</button>
                                 <a href="./audioBook-page.html">

@@ -7,20 +7,31 @@ export class StoryBook extends AbstractAPI{
         super();
     }
 
-    async getBooks() {
+    searchBooks(searchQuery) {
+        const query = new RecordQuery();
+        query.title = searchQuery;
+        query.maxResult = "10";
+        this.getBooks(query);
+    }
+
+    async getBooksDefault() {
+
+        const query = new RecordQuery();
+        query.category = "juvenile+fiction";
+        query.maxResult = "20";
+
+        this.getBooks(query);
+    }
+
+    async getBooks(query) {
 
         try {
-            const query = new RecordQuery();
-            query.category = "juvenile+fiction";
-            query.maxResult = "20";
-
             const searchQuery = query.concatQueries();
             const data = await this.fetchDataByQuery(searchQuery);
-            console.log(data);
             this.displayBooks(data.items);
 
         } catch (error) {
-            console.log(error);
+            console.log("Erreur! le livre n'a pas pu être récupéré.", error);
         }
     }
 
@@ -70,5 +81,11 @@ export class StoryBook extends AbstractAPI{
     }
 }
 
+
 const book = new StoryBook();
-book.getBooks();
+book.getBooksDefault();
+
+document.getElementById('searchButton').addEventListener('click', () => {
+    const searchQuery = document.getElementById('searchInput').value;
+    book.searchBooks(searchQuery);
+});
