@@ -1,9 +1,5 @@
 import { apiKey } from './config.js';
-import { DetailBook } from './detailBook.js';
 
-
-const book = new DetailBook();
-book.getBooks();
 
 document.getElementById('searchButton').addEventListener('click', () => {
   const searchQuery = document.getElementById('searchInput').value;
@@ -96,17 +92,3 @@ async function searchBooks(query) {
   }
 }
 
-
-
-// 
-
-// const theme = 'science fiction'; // remplacer par ce que l'utilisateur a tapé
-// // const apiKey = ''; // Remplace par ta vraie clé API
-// // const url = `https://www.googleapis.com/books/v1/volumes?q=subject:${theme}&key=`;
-
-// fetch(url + `subject:${theme}&key=` + apiKey)
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log(data.items); // Afficher ou traiter les livres récupéré
-//   })
-//   .catch(error => console.error('Erreur:', error));
